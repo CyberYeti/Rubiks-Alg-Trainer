@@ -135,8 +135,17 @@ def apply_move(state, move):
     perm = move_permutations[move]
     return ''.join(state[i] for i in perm)
 
+def parse_moves(moves_input):
+    if isinstance(moves_input, str):
+        # space-separated string
+        return moves_input.split()
+    else:
+        # already an iterable
+        return list(moves_input)
+
 def rotate_cube(state, moves):
-    for move in moves.split():
+    moves = parse_moves(moves)
+    for move in moves:
         state = apply_move(state, move)
     return state
 

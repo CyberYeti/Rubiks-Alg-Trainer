@@ -50,6 +50,8 @@ def findSolution(start: str, target: str, maxDepth: int = 6) -> set[str]:
             backMoves = backIntermediates[state].strip().split(" ")
             backMoves = [invertMove(m) for m in reversed(backMoves)]
             solutions.add(" ".join(frontMoves + backMoves))
+            #TODO Switch to a better joining algorithm to avoid duplicates like "R R'" in joined sections
+            #TODO consider switching to list of moves to reach state bc of multiple solutions to reach same state in restricted moveset."
 
     return solutions
 
@@ -62,12 +64,18 @@ if __name__ == "__main__":
     import magiccube
     from richFormatting import rich_print_colored
     startState = "WWWWWWWWWOOOOOOOOOGGGGGGGGGRRRRRRRRRBBBBBBBBBYYYYYYYYY"
-    cube = magiccube.Cube(3, OYBLOCK.replace("X","W"))
-    print("Target State:")
-    rich_print_colored(str(cube))
+    # cube = magiccube.Cube(3, OYBLOCK.replace("X","W"))
+    # print("Target State:")
+    # rich_print_colored(str(cube))
 
-    cube = magiccube.Cube(3, cur.replace("X","W"))
-    print("Current State:")
-    rich_print_colored(str(cube))
+    # cube = magiccube.Cube(3, cur.replace("X","W"))
+    # print("Current State:")
+    # rich_print_colored(str(cube))
 
-    print(findSolution(cur, OYBLOCK, maxDepth=12))
+    # print(findSolution(cur, OYBLOCK, maxDepth=12))
+
+    cube = magiccube.Cube(3, startState)
+    scramble = "F R U' L2 D B'"
+    cube.rotate(scramble)
+
+    print(findSolution(startState, cube.get(), maxDepth=8))
