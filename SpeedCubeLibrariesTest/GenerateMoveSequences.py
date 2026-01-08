@@ -39,6 +39,7 @@ def cvtStateToIndices(state:str)->list:
 #Calculate Move Permutation
 permutations = {}
 
+#region Standard Moves
 #U
 cube = Cube(cvtFacesToLayer(baseState))
 cube.U()
@@ -116,7 +117,9 @@ cube.D()
 indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
 permutations["D'"] = indices
 cube.D()
+#endregion
 
+#region Slice Moves
 #S
 cube = Cube(cvtFacesToLayer(baseState))
 cube.S()
@@ -155,6 +158,49 @@ cube.M()
 indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
 permutations["M'"] = indices
 cube.M()
+#endregion
+
+#region Cube Rotations
+#X
+cube = Cube(cvtFacesToLayer(baseState))
+cube.X()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["X"] = indices
+cube.X()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["X2"] = indices
+cube.X()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["X'"] = indices
+cube.X()
+
+#Y
+cube = Cube(cvtFacesToLayer(baseState))
+cube.Y()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["Y"] = indices
+cube.Y()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["Y2"] = indices
+cube.Y()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["Y'"] = indices
+cube.Y()
+
+#Z
+cube = Cube(cvtFacesToLayer(baseState))
+cube.Z()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["Z"] = indices
+cube.Z()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["Z2"] = indices
+cube.Z()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["Z'"] = indices
+cube.Z()
+#endregion
+
 
 def rotate_cube(state, moves):
     indicesState = [i for i in range(len(state))]

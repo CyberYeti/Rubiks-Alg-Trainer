@@ -21,7 +21,7 @@ def testBaseline(start, scramble):
     return rotate_cube(start, scramble)
 
 
-# scramble = "S"
+# scramble = "X"
 # baseline = LibBaseline(BASESTATE, scramble)
 # test = testBaseline(BASESTATE, scramble)
 # print(f"Scramble: {scramble}")
@@ -32,10 +32,9 @@ def testBaseline(start, scramble):
 # run 10000 sample tests
 numTests = 10000
 for _ in range(numTests):
-    scramble = [random.choice(["L","R","F","B","D","U","M","S","E"]) + random.choice(["","2","'"]) for _ in range(15)]
+    scramble = [random.choice(["L","R","F","B","D","U","M","S","E","X","Y","Z"]) + random.choice(["","2","'"]) for _ in range(15)]
     scramble = " ".join(scramble)
     baseline = LibBaseline(BASESTATE, scramble)
     test = testBaseline(BASESTATE, scramble)
     assert baseline == test, f"Mismatch on scramble {scramble}"
-
 print (f"{numTests} tests passed!")
