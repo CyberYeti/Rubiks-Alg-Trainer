@@ -201,6 +201,119 @@ permutations["Z'"] = indices
 cube.Z()
 #endregion
 
+#region Wide Moves
+# u = U + E'
+cube = Cube(cvtFacesToLayer(baseState))
+cube.U(); cube.Ei()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["u"] = indices
+cube.U(); cube.Ei()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["u2"] = indices
+cube.U(); cube.Ei()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["u'"] = indices
+
+# d = D + E
+cube = Cube(cvtFacesToLayer(baseState))
+cube.D(); cube.E()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["d"] = indices
+cube.D(); cube.E()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["d2"] = indices
+cube.D(); cube.E()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["d'"] = indices
+
+# l = L + M
+cube = Cube(cvtFacesToLayer(baseState))
+cube.L(); cube.M()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["l"] = indices
+cube.L(); cube.M()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["l2"] = indices
+cube.L(); cube.M()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["l'"] = indices
+
+# r = R + M'
+cube = Cube(cvtFacesToLayer(baseState))
+cube.R(); cube.Mi()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["r"] = indices
+cube.R(); cube.Mi()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["r2"] = indices
+cube.R(); cube.Mi()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["r'"] = indices
+
+# f = F + S
+cube = Cube(cvtFacesToLayer(baseState))
+cube.F(); cube.S()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["f"] = indices
+cube.F(); cube.S()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["f2"] = indices
+cube.F(); cube.S()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["f'"] = indices
+
+# b = B + S'
+cube = Cube(cvtFacesToLayer(baseState))
+cube.B(); cube.Si()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["b"] = indices
+cube.B(); cube.Si()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["b2"] = indices
+cube.B(); cube.Si()
+indices = cvtStateToIndices(cvtLayerToFaces("".join(str(cube).split())))
+permutations["b'"] = indices
+#endregion
+
+#region Aliases
+#Wide move aliases
+permutations["Uw"] = permutations["u"]
+permutations["Uw2"] = permutations["u2"]
+permutations["Uw'"] = permutations["u'"]
+
+permutations["Dw"] = permutations["d"]
+permutations["Dw2"] = permutations["d2"]
+permutations["Dw'"] = permutations["d'"]
+
+permutations["Lw"] = permutations["l"]
+permutations["Lw2"] = permutations["l2"]
+permutations["Lw'"] = permutations["l'"]
+
+permutations["Rw"] = permutations["r"]
+permutations["Rw2"] = permutations["r2"]
+permutations["Rw'"] = permutations["r'"]
+
+permutations["Fw"] = permutations["f"]
+permutations["Fw2"] = permutations["f2"]
+permutations["Fw'"] = permutations["f'"]
+
+permutations["Bw"] = permutations["b"]
+permutations["Bw2"] = permutations["b2"]
+permutations["Bw'"] = permutations["b'"]
+
+#Cube rotation aliases
+permutations["x"] = permutations["X"]
+permutations["x2"] = permutations["X2"]
+permutations["x'"] = permutations["X'"]
+
+permutations["y"] = permutations["Y"]
+permutations["y2"] = permutations["Y2"]
+permutations["y'"] = permutations["Y'"]
+
+permutations["z"] = permutations["Z"]
+permutations["z2"] = permutations["Z2"]
+permutations["z'"] = permutations["Z'"]
+#endregion
 
 def rotate_cube(state, moves):
     indicesState = [i for i in range(len(state))]

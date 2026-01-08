@@ -21,7 +21,7 @@ def testBaseline(start, scramble):
     return rotate_cube(start, scramble)
 
 
-# scramble = "X"
+# scramble = "U2 R' U2 R U2 R U' R U R'"
 # baseline = LibBaseline(BASESTATE, scramble)
 # test = testBaseline(BASESTATE, scramble)
 # print(f"Scramble: {scramble}")
@@ -32,7 +32,7 @@ def testBaseline(start, scramble):
 # run 10000 sample tests
 numTests = 10000
 for _ in range(numTests):
-    scramble = [random.choice(["L","R","F","B","D","U","M","S","E","X","Y","Z"]) + random.choice(["","2","'"]) for _ in range(15)]
+    scramble = [random.choice(["L","R","F","B","D","U","M","S","E","X","Y","Z","Uw","Dw","Lw","Rw","Fw","Bw"]) + random.choice(["","2","'"]) for _ in range(15)]
     scramble = " ".join(scramble)
     baseline = LibBaseline(BASESTATE, scramble)
     test = testBaseline(BASESTATE, scramble)
