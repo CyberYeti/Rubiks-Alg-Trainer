@@ -59,7 +59,7 @@ def invert_moves(sequence):
 
     return inverted
 
-def getAlgs(path):
+def get_algs(path):
     with open(path, 'r') as file:
         data = json.load(file)
     return [alg['algorithm'] for alg in data['algs']]

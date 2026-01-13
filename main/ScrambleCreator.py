@@ -1,9 +1,9 @@
 import random
 import GenerateMoveSequences
-from CubeUtils import invert_moves, getAlgs, kociemba_solve
+from CubeUtils import invert_moves, get_algs, kociemba_solve
 
-ollAlgs = getAlgs('Algs/CrossOLL.json')
-pllAlgs = getAlgs('Algs/PLL.json')
+ollAlgs = get_algs('Algs/OCLL.json')
+pllAlgs = get_algs('Algs/PLL.json')
 
 def SpecificScramble():
     pll = random.choice(pllAlgs)
