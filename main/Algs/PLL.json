@@ -1,0 +1,79 @@
+{
+  "setName": "PLL",
+  "cube": "3x3",
+  "notation": "Singmaster",
+  "algs": [
+    {
+      "id": "pll_aa",
+      "name": "Aa Perm",
+      "algorithm": "x L2 D2 L' U' L D2 L' U L'",
+      "mirrored": false,
+      "inverse": "pll_ab",
+      "rotation": "",
+      "notes": ""
+    },
+    {
+      "id": "pll_ab",
+      "name": "Ab Perm",
+      "algorithm": "x' L2 D2 L U L' D2 L U' L",
+      "mirrored": false,
+      "inverse": "pll_aa",
+      "rotation": "",
+      "notes": ""
+    },
+    {
+      "id": "pll_e",
+      "name": "E Perm",
+      "algorithm": "x' R U' R' D R U R' D' R U R' D R U' R' D'",
+      "mirrored": false,
+      "inverse": "",
+      "rotation": "",
+      "notes": ""
+    },
+    {
+      "id": "pll_f",
+      "name": "F Perm",
+      "algorithm": "R' U' F' R U R' U' R' F R2 U' R' U' R U R' U R",
+      "mirrored": false,
+      "inverse": "",
+      "rotation": "",
+      "notes": ""
+    },
+    {
+      "id": "pll_ga",
+      "name": "Ga Perm",
+      "algorithm": "R2 U R' U R' U' R U' R2 U' D R' U R D'",
+      "mirrored": false,
+      "inverse": "pll_gb",
+      "rotation": "",
+      "notes": ""
+    },
+    {
+      "id": "pll_gb",
+      "name": "Gb Perm",
+      "algorithm": "R' U' R U D' R2 U R' U R U' R U' R2 D",
+      "mirrored": false,
+      "inverse": "pll_ga",
+      "rotation": "",
+      "notes": ""
+    },
+    {
+      "id": "pll_h",
+      "name": "H Perm",
+      "algorithm": "M2 U M2 U2 M2 U M2",
+      "mirrored": false,
+      "inverse": "",
+      "rotation": "",
+      "notes": ""
+    },
+    {
+      "id": "pll_z",
+      "name": "Z Perm",
+      "algorithm": "M2 U M2 U M' U2 M2 U2 M'",
+      "mirrored": false,
+      "inverse": "",
+      "rotation": "",
+      "notes": ""
+    }
+  ]
+}

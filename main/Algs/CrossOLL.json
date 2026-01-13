@@ -1,0 +1,57 @@
+{
+  "setName": "Cross OLL",
+  "cube": "3x3",
+  "notation": "Singmaster",
+  "definition": "OLL cases where the last-layer cross is already oriented",
+  "algs": [
+    {
+      "id": "oll_21",
+      "name": "OLL 21",
+      "algorithm": "R U2 R' U' R U R' U' R U' R'",
+      "crossPreserved": true,
+      "notes": ""
+    },
+    {
+      "id": "oll_22",
+      "name": "OLL 22",
+      "algorithm": "R U2 R2 U' R2 U' R2 U2 R",
+      "crossPreserved": true,
+      "notes": ""
+    },
+    {
+      "id": "oll_23",
+      "name": "OLL 23",
+      "algorithm": "R2 D R' U2 R D' R' U2 R'",
+      "crossPreserved": true,
+      "notes": ""
+    },
+    {
+      "id": "oll_24",
+      "name": "OLL 24",
+      "algorithm": "r U R' U' r' F R F'",
+      "crossPreserved": true,
+      "notes": "Uses wide moves"
+    },
+    {
+      "id": "oll_25",
+      "name": "OLL 25",
+      "algorithm": "F R U R' U' F'",
+      "crossPreserved": true,
+      "notes": ""
+    },
+    {
+      "id": "oll_26",
+      "name": "OLL 26",
+      "algorithm": "R U2 R' U' R U' R'",
+      "crossPreserved": true,
+      "notes": ""
+    },
+    {
+      "id": "oll_27",
+      "name": "OLL 27",
+      "algorithm": "R U R' U R U2 R'",
+      "crossPreserved": true,
+      "notes": ""
+    }
+  ]
+}
