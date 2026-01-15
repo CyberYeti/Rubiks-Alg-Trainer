@@ -6,7 +6,7 @@
     {
       "id": "pll_aa",
       "name": "Aa Perm",
-      "algorithm": "x L2 D2 L' U' L D2 L' U L'",
+      "algorithm": "x L2 D2 L' U' L D2 L' U L' x'",
       "mirrored": false,
       "inverse": "pll_ab",
       "rotation": "",
@@ -15,7 +15,7 @@
     {
       "id": "pll_ab",
       "name": "Ab Perm",
-      "algorithm": "x' L2 D2 L U L' D2 L U' L",
+      "algorithm": "x' L2 D2 L U L' D2 L U' L x",
       "mirrored": false,
       "inverse": "pll_aa",
       "rotation": "",
@@ -24,7 +24,7 @@
     {
       "id": "pll_e",
       "name": "E Perm",
-      "algorithm": "x' R U' R' D R U R' D' R U R' D R U' R' D'",
+      "algorithm": "x' R U' R' D R U R' D' R U R' D R U' R' D' x",
       "mirrored": false,
       "inverse": "",
       "rotation": "",
