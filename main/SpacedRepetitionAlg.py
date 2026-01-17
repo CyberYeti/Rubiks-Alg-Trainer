@@ -40,31 +40,47 @@ class CubeSRS:
             print(f"🆕 NEW ALG ADDED: {new_alg.name}")
 
     def get_next_card(self):
-        """Decides which card to show based on Priority Logic."""
+        """Decides which card to show with Interleaving Logic."""
         all_active = self.active_slots + self.graduated_pile
         
         if not all_active:
             return None, "Empty"
 
+        # FILTER: Create a pool of candidates excluding the one we just did
+        # We only apply this filter if we have more than 1 card total.
+        candidates = all_active
+        if len(all_active) > 1 and self.last_card:
+            candidates = [c for c in all_active if c != self.last_card]
+
         # 1. PRIORITY: Strictly Due (Overdue)
-        # Sort by who is most overdue (smallest next_due_at)
-        due_cards = [c for c in all_active if c.next_due_at <= self.total_solves]
+        # We prefer overdue cards from the Candidate pool (not the one we just did)
+        due_cards = [c for c in candidates if c.next_due_at <= self.total_solves]
+        
         if due_cards:
-            # Return the one most overdue
             due_cards.sort(key=lambda x: x.next_due_at)
-            return due_cards[0], "Due"
+            selected = due_cards[0]
+            self.last_card = selected # Update tracker
+            return selected, "Due"
 
         # 2. GAP FILLER: Grind Mode
-        # If nothing is due, pick the Active Learning card with the closest due date
-        # We prefer Learning cards for grind over Graduated cards
-        learning_only = [c for c in self.active_slots]
-        if learning_only:
-            learning_only.sort(key=lambda x: x.next_due_at)
-            return learning_only[0], "Grind"
+        # If nothing is strictly due, we MUST practice something.
+        # We pick the card from the CANDIDATE pool that is closest to being due.
         
-        # 3. Last Resort: Practice a graduated card early
-        all_active.sort(key=lambda x: x.next_due_at)
-        return all_active[0], "Grind"
+        # We prefer active learning cards over graduated ones for grind
+        learning_candidates = [c for c in candidates if c.status == "Learning"]
+        
+        if learning_candidates:
+            learning_candidates.sort(key=lambda x: x.next_due_at)
+            selected = learning_candidates[0]
+            self.last_card = selected
+            return selected, "Grind (Learning)"
+        
+        # If no learning candidates (e.g. all learning cards are the 'last_card'), 
+        # fall back to graduated candidates
+        candidates.sort(key=lambda x: x.next_due_at)
+        selected = candidates[0]
+        self.last_card = selected
+        return selected, "Grind (Maintenance)"
 
     def process_rating(self, card, rating, mode):
         """Updates algorithm stats based on user rating."""
@@ -118,6 +134,7 @@ class CubeSRS:
         print(f"Rules: Active Limit {self.MAX_ACTIVE_SLOTS} | Cap {self.MAINTENANCE_CAP} solves")
         
         while True:
+            self.last_card = None
             self.fill_slots()
             current_card, mode = self.get_next_card()
             

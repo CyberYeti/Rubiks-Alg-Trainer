@@ -64,6 +64,7 @@ if __name__ == "__main__":
     import magiccube
     from richFormatting import rich_print_colored
     startState = "WWWWWWWWWOOOOOOOOOGGGGGGGGGRRRRRRRRRBBBBBBBBBYYYYYYYYY"
+    targetState = "BBGWWWWWWOOOWOOWOOGGGGGGGGYRRYRRYRRRRYYRBBWBBYYBYYBOOB"
     # cube = magiccube.Cube(3, OYBLOCK.replace("X","W"))
     # print("Target State:")
     # rich_print_colored(str(cube))
@@ -74,8 +75,8 @@ if __name__ == "__main__":
 
     # print(findSolution(cur, OYBLOCK, maxDepth=12))
 
-    cube = magiccube.Cube(3, startState)
-    scramble = "F R U' L2 D B'"
-    cube.rotate(scramble)
+    # cube = magiccube.Cube(3, startState)
+    # scramble = "F R U' L2 D B'"
+    # cube.rotate(scramble)
 
-    print(findSolution(startState, cube.get(), maxDepth=8))
+    print(findSolution(targetState, startState, maxDepth=8))
